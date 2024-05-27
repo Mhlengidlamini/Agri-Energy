@@ -1,0 +1,50 @@
+﻿@page
+@model Agri_Energy.Pages.Farmers.IndexModel
+
+@{
+    ViewData["Title"] = " Employees page ";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Farmer[0].name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Farmer[0].location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Farmer[0].contact_number)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Farmer) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contact_number)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.farmer_id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.farmer_id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.farmer_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

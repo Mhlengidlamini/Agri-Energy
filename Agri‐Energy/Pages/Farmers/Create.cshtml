@@ -1,0 +1,44 @@
+﻿@page
+@model Agri_Energy.Pages.Farmers.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Farmer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Farmer.name" class="control-label"></label>
+                <input asp-for="Farmer.name" class="form-control" />
+                <span asp-validation-for="Farmer.name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Farmer.location" class="control-label"></label>
+                <input asp-for="Farmer.location" class="form-control" />
+                <span asp-validation-for="Farmer.location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Farmer.contact_number" class="control-label"></label>
+                <input asp-for="Farmer.contact_number" class="form-control" />
+                <span asp-validation-for="Farmer.contact_number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

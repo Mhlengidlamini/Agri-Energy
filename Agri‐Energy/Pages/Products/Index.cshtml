@@ -1,0 +1,56 @@
+﻿@page
+@model Agri_Energy.Pages.Products.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].product_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].production_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].farmer_id)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Product) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.production_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.farmer_id)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.product_id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.product_id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.product_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

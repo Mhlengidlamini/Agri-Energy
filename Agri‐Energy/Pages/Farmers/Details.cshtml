@@ -1,0 +1,37 @@
+﻿@page
+@model Agri_Energy.Pages.Farmers.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Farmer</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Farmer.name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Farmer.name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Farmer.location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Farmer.location)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Farmer.contact_number)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Farmer.contact_number)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Farmer.farmer_id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
